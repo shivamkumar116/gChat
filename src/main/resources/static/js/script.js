@@ -42,7 +42,7 @@ function connectionSuccess() {
 	var request = new XMLHttpRequest();
 
 	// Open a new connection, using the GET request on the URL endpoint
-	request.open('GET', 'http://localhost:8080/history', true);
+	request.open('GET', 'https://gchatv1.herokuapp.com/history', true);
 
 	request.onload = function () {
 		// Begin accessing JSON data here
