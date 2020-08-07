@@ -19,14 +19,14 @@ import com.gopjal.domain.ChatMessage;
 public class ChatController {
 
 	@Autowired
-	private ChatMessageDao chatMessageDao;
+	private ChatMessageDao chatMessagedao;
 
 	@MessageMapping("/chat.sendMessage")
 	@SendTo("/topic/gopjal")
 	public ChatMessage sendMessage(@Payload ChatMessage ChatMessage) {
 
 		// database connection and save into the database
-		chatMessageDao.save(ChatMessage);
+		chatMessagedao.save(ChatMessage);
 		System.out.println(ChatMessage);
 
 		return ChatMessage;
@@ -39,7 +39,7 @@ public class ChatController {
 		headerAccessor.getSessionAttributes().put("username", ChatMessage.getSender());
 
 		// saving into the database
-		chatMessageDao.save(ChatMessage);
+		chatMessagedao.save(ChatMessage);
 		System.out.println(ChatMessage);
 		return ChatMessage;
 	}
